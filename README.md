@@ -5,7 +5,7 @@
 ## TODO:
 
 - [x] (Configurable support of flip key mapping)
-- [x] (Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; numpad backlight does the same; history done via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/))
+- [x] (Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; numpad backlight does the same; history done via usage of optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) as temp file)
 - [x] (When after laptop start does not exist device `Intel HID switches` yet (driver will try find again every 5s) use for first change mode device `Asus WMI hotkeys` and listen for configurable key (in my case `KEY_PROG2`) then is imediatelly added device `Intel HID switches`)
 
 <br/>
