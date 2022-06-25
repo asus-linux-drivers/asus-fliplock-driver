@@ -5,7 +5,7 @@
 ## TODO:
 
 - [x] (Configurable support of flip key mapping)
-- [x] (Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop)
+- [x] (Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; numpad backlight does the same)
 - [x] (When after laptop start does not exist device `Intel HID switches` yet (driver will try find again every 5s) use for first change mode device `Asus WMI hotkeys` and listen for configurable key (in my case `KEY_PROG2`) then is imediatelly added device `Intel HID switches`)
 
 <br/>
