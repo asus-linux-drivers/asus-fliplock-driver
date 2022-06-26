@@ -29,13 +29,7 @@ sudo dnf install libevdev python-libevdev git
 ```
 
 
-Then enable i2c
-```
-sudo modprobe i2c-dev
-sudo i2cdetect -l
-```
-
-Now you can get the latest ASUS WMI hotkeys driver for Linux from Git and install it using the following commands.
+Now you can get the latest ASUS fliplock driver for Linux from Git and install it using the following commands.
 ```
 git clone https://github.com/asus-linux-drivers/asus-fliplock-driver
 cd asus-wmi-hotkeys
