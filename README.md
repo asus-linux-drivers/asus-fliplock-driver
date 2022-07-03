@@ -2,6 +2,8 @@
 
 **Tested only on laptop Asus ZenBook UP5401EA** and system Elementary OS 6.1 Loki.
 
+![gif preview](./preview.gif)
+
 ## TODO:
 
 - [x] (Configurable support of flip key mapping)
