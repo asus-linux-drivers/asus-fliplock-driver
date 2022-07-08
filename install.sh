@@ -8,11 +8,11 @@ then
 fi
 
 if [[ $(sudo apt install 2>/dev/null) ]]; then
-    echo 'apt is here' && sudo apt -y install libevdev2 python3-libevdev i2c-tools git
+    echo 'apt is here' && sudo apt -y install libevdev2 python3-libevdev git
 elif [[ $(sudo pacman -h 2>/dev/null) ]]; then
-    echo 'pacman is here' && sudo pacman --noconfirm -S libevdev python-libevdev i2c-tools git
+    echo 'pacman is here' && sudo pacman --noconfirm -S libevdev python-libevdev git
 elif [[ $(sudo dnf install 2>/dev/null) ]]; then
-    echo 'dnf is here' && sudo dnf -y install libevdev python-libevdev i2c-tools git
+    echo 'dnf is here' && sudo dnf -y install libevdev python-libevdev git
 fi
 
 if [[ -d conf/__pycache__ ]] ; then
@@ -23,31 +23,35 @@ echo
 echo "Select configuration layout:"
 PS3='Please enter your choice '
 options=($(ls conf) "Quit")
-select opt in "${options[@]}"
+select selected_opt in "${options[@]}"
 do
-    opt=${opt::-3}
-    case $opt in
-        "up541ea" )
-            layout=up541ea
+    if [ "$selected_opt" = "Quit" ]
+    then
+        exit 0
+    fi
+
+    for option in $(ls conf);
+    do
+        if [ "$option" = "$selected_opt" ] ; then
+            model=${selected_opt::-3}
             break
-            ;;
-        "Q")
-            exit 0
-            ;;
-        *)
-            echo "invalid option $REPLY";;
-    esac
+        fi
+    done
+
+    if [ -z "$model" ] ; then
+        echo "invalid option $REPLY"
+    else
+        break
+    fi
 done
 
 echo "Add asus fliplock service in /etc/systemd/system/"
-cat asus_fliplock.service > /etc/systemd/system/asus_fliplock.service
+cat asus_fliplock.service | LAYOUT=$model envsubst '$LAYOUT' > /etc/systemd/system/asus_fliplock.service
 
 mkdir -p /usr/share/asus_fliplock-driver/conf
 mkdir -p /var/log/asus_fliplock-driver
 install asus_fliplock.py /usr/share/asus_fliplock-driver/
 install -t /usr/share/asus_fliplock-driver/conf conf/*.py
-
-echo "i2c-dev" | tee /etc/modules-load.d/i2c-dev.conf >/dev/null
 
 systemctl enable asus_fliplock
 
