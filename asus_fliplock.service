@@ -5,8 +5,8 @@ Description=Asus fliplock handler
 Type=simple
 ExecStart=/usr/share/asus_fliplock-driver/asus_fliplock.py $LAYOUT
 StandardInput=tty-force
-StandardOutput=/var/log/asus_fliplock-driver/error.log
-StandardError=/var/log/asus_fliplock-driver/error.log
+StandardOutput=append:/var/log/asus_fliplock-driver/error.log
+StandardError=append:/var/log/asus_fliplock-driver/error.log
 TimeoutSec=5
 Restart=on-failure
 # For some operating systems with boot failure, adding this following property might resolve the issue  
