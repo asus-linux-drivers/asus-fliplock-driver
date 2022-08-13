@@ -34,7 +34,7 @@ sudo dnf install libevdev python-libevdev git
 Now you can get the latest ASUS fliplock driver for Linux from Git and install it using the following commands.
 ```
 git clone https://github.com/asus-linux-drivers/asus-fliplock-driver
-cd asus-wmi-hotkeys
+cd asus-fliplock-driver
 sudo ./install.sh
 ```
 
