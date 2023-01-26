@@ -3,7 +3,7 @@ Description=Asus fliplock handler
 
 [Service]
 Type=simple
-ExecStart=/usr/share/asus_fliplock-driver/asus_fliplock.py $LAYOUT
+ExecStart=/usr/bin/env python3 /usr/share/asus_fliplock-driver/asus_fliplock.py $LAYOUT
 StandardInput=tty-force
 StandardOutput=append:/var/log/asus_fliplock-driver/error.log
 StandardError=append:/var/log/asus_fliplock-driver/error.log
