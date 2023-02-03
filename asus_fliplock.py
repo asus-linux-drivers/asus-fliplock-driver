@@ -17,7 +17,7 @@ log = logging.getLogger('Asus fliplock')
 log.setLevel(os.environ.get('LOG', 'INFO'))
 
 # Layout
-layout = 'up541ea'
+layout = 'default'
 if len(sys.argv) > 1:
     layout = sys.argv[1]
 
