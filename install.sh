@@ -7,12 +7,12 @@ then
 	exit 1
 fi
 
-if [[ $(sudo apt install 2>/dev/null) ]]; then
-    echo 'apt is here' && sudo apt -y install libevdev2 python3-libevdev
-elif [[ $(sudo pacman -h 2>/dev/null) ]]; then
-    echo 'pacman is here' && sudo pacman --noconfirm -S libevdev python-libevdev
-elif [[ $(sudo dnf install 2>/dev/null) ]]; then
-    echo 'dnf is here' && sudo dnf -y install libevdev python-libevdev
+if [[ $(apt install 2>/dev/null) ]]; then
+    echo 'apt is here' && apt -y install libevdev2 python3-libevdev
+elif [[ $(pacman -h 2>/dev/null) ]]; then
+    echo 'pacman is here' && pacman --noconfirm -S libevdev python-libevdev
+elif [[ $(dnf install 2>/dev/null) ]]; then
+    echo 'dnf is here' && dnf -y install libevdev python-libevdev
 fi
 
 if [[ -d conf/__pycache__ ]] ; then
