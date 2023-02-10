@@ -1,39 +1,22 @@
 # Asus fliplock driver
 
 [![License: GPLv2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
-
+![Maintainer](https://img.shields.io/badge/maintainer-ldrahnik-blue)
 If you find the project useful, do not forget to give project a [![GitHub stars](https://img.shields.io/github/stars/asus-linux-drivers/asus-fliplock-driver.svg?style=flat-square)](https://github.com/asus-linux-drivers/asus-fliplock-driver/stargazers) People already did!
 
 ![gif preview](./preview.gif)
 
-## TODO:
+## Features
 
-- [x] (Configurable support of flip key mapping)
-- [x] (Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; numpad backlight does the same; history may be done for example via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) or temp file located in `/tmp`)
-- [x] (Disable backlight of capslock led in tablet mode and use latest level of backlight when is mode changed back to laptop; numpad backlight does the same)
-- [x] (When after laptop start does not exist device `Intel HID switches` yet (driver will try find again every 5s) use for first change mode device `Asus WMI hotkeys` and listen for configurable key (in my case `KEY_PROG2`) then is imediatelly added device `Intel HID switches`)
+- Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; NumberPad backlight does the same; CapsLock led too; history may be done for example via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) or temp file located in `/tmp`
+- When does not exist device `Intel HID switches` yet, driver will try find again every 5s and use for first flip event from `Asus WMI hotkeys` instead
+- Customizable scripts for each display rotation (inverted, left-up, right-up and default)
+- Touchpad rotates by default
+- Configurable support of flip key mapping, by default `EV_KEY.KEY_PROG2`
 
 <br/>
 
-Install required packages
-
-- Debian / Ubuntu / Linux Mint / Pop!_OS / Zorin OS:
-```
-sudo apt install libevdev2 python3-libevdev git
-```
-
-- Arch Linux / Manjaro:
-```
-sudo pacman -S libevdev python-libevdev git
-```
-
-- Fedora:
-```
-sudo dnf install libevdev python-libevdev git
-```
-
-
-Now you can get the latest ASUS fliplock driver for Linux from Git and install it using the following commands.
+You can get the latest ASUS fliplock driver for Linux from Git and install it using the following commands.
 ```
 git clone https://github.com/asus-linux-drivers/asus-fliplock-driver
 cd asus-fliplock-driver
@@ -52,11 +35,6 @@ To activate logger, do in a console:
 LOG=DEBUG sudo -E ./asus_fliplock.py
 ```
 
-For some operating systems with boot failure (Pop!OS, Mint, ElementaryOS, SolusOS), before installing, please uncomment in the asus_fliplock.service file, this following property and adjust its value:
-```
-# ExecStartPre=/bin/sleep 2
-```
-
 ## Credits
 
 Thank you very much all the contributors of [asus-touchpad-numpad-driver](https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver) for your work.
@@ -64,5 +42,6 @@ Thank you very much all the contributors of [asus-touchpad-numpad-driver](https:
 ## Existing similar projects
 
 - [bash] https://github.com/alesya-h/linux_detect_tablet_mode
+- [bash] https://gist.github.com/ACamposPT/6794aa02a6e5e341f123d447b3645b93
 
-Why was this project created? Easier installation/uinstallation and usage of python libevdev.
+Why was this project created? Easy installation/uninstallation and implementation of handling touchpad rotation together with customizable possibility for each display rotation state. Aimed for Asus laptops.
