@@ -11,10 +11,8 @@ If you find the project useful, do not forget to give project a [![GitHub stars]
 
 ## Features
 
-- Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop; NumberPad backlight does the same; CapsLock led too; history may be done for example via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) or temp file located in `/tmp`
+- Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop mode; NumberPad backlight does the same; CapsLock led too; history may be done for example via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) or temp file located in `/tmp`
 - When does not exist device `Intel HID switches` yet, driver will try find again every 5s and use for first flip event from `Asus WMI hotkeys` instead
-- Customizable scripts for each display rotation (inverted, left-up, right-up and default)
-- Touchpad rotates by default
 - Configurable support of flip key mapping, by default `EV_KEY.KEY_PROG2`
 
 <br/>

@@ -8,19 +8,11 @@ then
 fi
 
 if [[ $(apt install 2>/dev/null) ]]; then
-    echo 'apt is here' && apt -y install libevdev2 python3-libevdev iio-sensor-proxy
+    echo 'apt is here' && apt -y install libevdev2 python3-libevdev
 elif [[ $(pacman -h 2>/dev/null) ]]; then
-    echo 'pacman is here' && pacman --noconfirm -S libevdev python-libevdev iio-sensor-proxy
+    echo 'pacman is here' && pacman --noconfirm -S libevdev python-libevdev
 elif [[ $(dnf install 2>/dev/null) ]]; then
-    echo 'dnf is here' && dnf -y install libevdev python-libevdev iio-sensor-proxy
-fi
-
-python3 -m pip install -r requirements.txt
-
-# Checking if the pip dependencies are successfuly loaded
-if [[ $? != 0 ]]; then
-    echo "pip dependencies via file requirements.txt cannot be loaded correctly."
-    exit 1
+    echo 'dnf is here' && dnf -y install libevdev python-libevdev
 fi
 
 if [[ -d conf/__pycache__ ]] ; then
@@ -79,5 +71,7 @@ then
 else
 	echo "Asus fliplock service started"
 fi
+
+echo "Install finished"
 
 exit 0
