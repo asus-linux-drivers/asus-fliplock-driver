@@ -12,8 +12,7 @@ If you find the project useful, do not forget to give project a [![GitHub stars]
 ## Features
 
 - Disable backlight of keyboard in tablet mode and use latest level of backlight when is mode changed back to laptop mode; NumberPad backlight does the same; CapsLock led too; history may be done for example via optional file [`brightness_hw_changed`](https://patchwork.kernel.org/project/platform-driver-x86/patch/20170129134252.6185-1-hdegoede@redhat.com/) or temp file located in `/tmp`
-- When does not exist device `Intel HID switches` yet, driver will try find again every 5s and use for first flip event from `Asus WMI hotkeys` instead
-- Configurable support of flip key mapping, by default `EV_KEY.KEY_PROG2`
+- When does not exist device `Intel HID switches` yet, driver will try find again every 5s and use for first flip event from `Asus WMI hotkeys`, concretely will catch configurable key, by default `EV_KEY.KEY_PROG2`
 
 <br/>
 
@@ -33,16 +32,12 @@ sudo ./uninstall.sh
 
 To activate logger, do in a console:
 ```
-LOG=DEBUG sudo -E ./asus_fliplock.py
+LOG=DEBUG sudo -E ./asus_fliplock.py "default"
 ```
-
-## Credits
-
-Thank you very much all the contributors of [asus-touchpad-numpad-driver](https://github.com/mohamed-badaoui/asus-touchpad-numpad-driver) for your work.
 
 ## Existing similar projects
 
 - [bash] https://github.com/alesya-h/linux_detect_tablet_mode
 - [bash] https://gist.github.com/ACamposPT/6794aa02a6e5e341f123d447b3645b93
 
-Why was this project created? Easy installation/uninstallation and implementation of handling touchpad rotation together with customizable possibility for each display rotation state. Aimed for Asus laptops.
+Why was this project created? Easy installation/uninstallation and with default config aimed for Asus laptops.
