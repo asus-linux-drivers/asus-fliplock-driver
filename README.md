@@ -45,6 +45,5 @@ LOG=DEBUG sudo -E ./asus_fliplock.py "default"
 ## Existing similar projects
 
 - [bash] https://github.com/alesya-h/linux_detect_tablet_mode
-- [bash] https://gist.github.com/ACamposPT/6794aa02a6e5e341f123d447b3645b93
 
 Why was this project created? Easy installation/uninstallation and with default config aimed for Asus laptops.
