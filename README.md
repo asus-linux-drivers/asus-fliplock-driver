@@ -8,6 +8,10 @@
 
 If you find the project useful, do not forget to give project a [![GitHub stars](https://img.shields.io/github/stars/asus-linux-drivers/asus-fliplock-driver.svg?style=flat-square)](https://github.com/asus-linux-drivers/asus-fliplock-driver/stargazers) People already did!
 
+## TODO
+
+- [ ] Not supported AMD devices as it looks like AMD devices does not send events to which could this driver hook on (https://github.com/asus-linux-drivers/asus-fliplock-driver/issues/3, https://github.com/asus-linux-drivers/asus-fliplock-driver/issues/10)
+
 ## Features
 
 - By default disable backlight of keyboard in tablet mode, Remember latest backlight levels via temp file located in `/tmp`
