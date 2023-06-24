@@ -53,6 +53,15 @@ mkdir -p /var/log/asus_fliplock-driver
 install asus_fliplock.py /usr/share/asus_fliplock-driver/
 install -t /usr/share/asus_fliplock-driver/conf conf/*.py
 
+systemctl daemon-reload
+
+if [[ $? != 0 ]]; then
+    echo "Something went wrong when was called systemctl daemon reload"
+    exit 1
+else
+    echo "Systemctl daemon realod called succesfully"
+fi
+
 systemctl enable asus_fliplock
 
 if [[ $? != 0 ]]
