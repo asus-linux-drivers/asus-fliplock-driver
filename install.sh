@@ -11,7 +11,7 @@ if [[ $(apt install 2>/dev/null) ]]; then
     echo 'apt is here' && apt -y install libevdev2 python3-libevdev
 elif [[ $(pacman -h 2>/dev/null) ]]; then
     echo 'pacman is here' && pacman --noconfirm -S libevdev python-libevdev
-elif [[ $(dnf install 2>/dev/null) ]]; then
+elif [[ $(dnf help 2>/dev/null) ]]; then
     echo 'dnf is here' && dnf -y install libevdev python-libevdev
 fi
 
