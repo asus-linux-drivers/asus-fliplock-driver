@@ -4,7 +4,9 @@ laptop_mode_actions = [
     # setting up saved keyboard backlight brightness (restore from backup)
     "test -f /tmp/kbd_backlight_brightness && cat /tmp/kbd_backlight_brightness | sudo tee /sys/class/leds/asus::kbd_backlight/brightness",
     # setting up saved capslock backlight brightness (restore from backup)
-    "test -f /tmp/input3_capslock_brightness && cat /tmp/input3_capslock_brightness | sudo tee /sys/class/leds/input3\:\:capslock/brightness"
+    "test -f /tmp/input3_capslock_brightness && cat /tmp/input3_capslock_brightness | sudo tee /sys/class/leds/input3::capslock/brightness",
+    # setting up saved micmute backlight brightness (restore from backup)
+    "test -f /tmp/micmute_brightness && cat /tmp/micmute_brightness | sudo tee /sys/class/leds/platform::micmute/brightness",
 ]
 
 tablet_mode_actions = [
@@ -13,9 +15,13 @@ tablet_mode_actions = [
     # disable keyboard backlight brightness
     "echo 0 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness",
     # save capslock led brightness (do a backup)
-    "cat /sys/class/leds/input3\:\:capslock/brightness | sudo tee /tmp/input3_capslock_brightness",
+    "cat /sys/class/leds/input3::capslock/brightness | sudo tee /tmp/input3_capslock_brightness",
     # disable capslock led brightness
-    "echo 0 | sudo tee /sys/class/leds/input3\:\:capslock/brightness"
+    "echo 0 | sudo tee /sys/class/leds/input3::capslock/brightness",
+    # save micmute led brightness (do a backup)
+    "cat /sys/class/leds/platform::micmute/brightness | sudo tee /tmp/micmute_brightness",
+    # disable micmute led brightness
+    "echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness",
 ]
 
 flip_key = EV_KEY.KEY_PROG2
