@@ -17,6 +17,7 @@ If you find the project useful, do not forget to give project a [![GitHub stars]
 - By default disable backlight of keyboard in tablet mode, Remember latest backlight levels via temp file located in `/tmp`
 - By default disable backlight of NumLock key in tablet mode
 - By default disable backlight of NumberPad in tablet mode, remember latest backlight level via temp file located in `/tmp`
+- By default disable backlight of MicMute key in tablet mode, remember latest backlight level via temp file located in `/tmp`
 - When does not exist device `Intel HID switches` yet, driver will try find again every 5s and will use for first time flip event from `Asus WMI hotkeys`, concretely will catch configurable key, by default `EV_KEY.KEY_PROG2`
 
 ## Preview
