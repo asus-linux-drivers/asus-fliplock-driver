@@ -8,21 +8,18 @@
 
 If you find the project useful, do not forget to give project a [![GitHub stars](https://img.shields.io/github/stars/asus-linux-drivers/asus-fliplock-driver.svg?style=flat-square)](https://github.com/asus-linux-drivers/asus-fliplock-driver/stargazers) People already did!
 
-## TODO
-
-- [ ] Not supported AMD devices as it looks like AMD devices does not send events to which could this driver hook on (https://github.com/asus-linux-drivers/asus-fliplock-driver/issues/3, https://github.com/asus-linux-drivers/asus-fliplock-driver/issues/10)
-
 ## Changelog
 
 [CHANGELOG.md](CHANGELOG.md)
 
 ## Features
 
+- When does not exist device `Intel HID switches` yet, driver will try find again every 5s and will use for first time flip event from `Asus WMI hotkeys`, concretely will catch configurable key, by default `EV_KEY.KEY_PROG2`
+- When you do not receive event `EV_KEY.KEY_PROG2` neither `switch tablet-mode state` drivers work together with https://github.com/asus-linux-drivers/asus-accel-tablet-mode-driver (e.g. laptop `UN5401QAB_UN5401QA` and associated issue https://github.com/asus-linux-drivers/asus-fliplock-driver/issues/3)
 - By default disable backlight of keyboard in tablet mode, Remember latest backlight levels via temp file located in `/tmp`
 - By default disable backlight of NumLock key in tablet mode
 - By default disable backlight of NumberPad in tablet mode, remember latest backlight level via temp file located in `/tmp`
 - By default disable backlight of MicMute key in tablet mode, remember latest backlight level via temp file located in `/tmp`
-- When does not exist device `Intel HID switches` yet, driver will try find again every 5s and will use for first time flip event from `Asus WMI hotkeys`, concretely will catch configurable key, by default `EV_KEY.KEY_PROG2`
 
 ## Preview
 
@@ -44,6 +41,25 @@ To uninstall, just run:
 ```
 sudo ./uninstall.sh
 ```
+
+When you do not receive event `KEY_PROG2` neither `SWITCH_TOGGLE`:
+
+```
+$ sudo libinput debug-events
+...
+-event4   DEVICE_ADDED     Asus WMI hotkeys                  seat0 default group11 cap:k
+...
+-event4   KEYBOARD_KEY     +0.623s	KEY_PROG2 (149) pressed
+ event4   KEYBOARD_KEY     +0.623s	KEY_PROG2 (149) released
+-event29  DEVICE_ADDED     Intel HID switches                seat0 default group16 cap:S
+ event29  SWITCH_TOGGLE    +0.722s	switch tablet-mode state 1
+-event29  SWITCH_TOGGLE    +1.174s	switch tablet-mode state 0
+-event4   KEYBOARD_KEY     +1.175s	KEY_PROG2 (149) pressed
+ event4   KEYBOARD_KEY     +1.175s	KEY_PROG2 (149) released
+```
+
+try install this driver together with https://github.com/asus-linux-drivers/asus-accel-tablet-mode-driver
+
 
 **Troubleshooting**
 
