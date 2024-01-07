@@ -47,8 +47,8 @@ def search_devices():
                     switches_detected = 1
                     log.debug('Detect switches from %s', line.strip())
 
-                # Look for the device wmi hotkeys
-                if wmi_hotkeys_detected == 0 and ("Name=\"Asus WMI hotkeys" in line):
+                # Look for the device wmi hotkey or https://github.com/asus-linux-drivers/asus-accel-tablet-mode-driver
+                if wmi_hotkeys_detected == 0 and (("Name=\"Asus WMI hotkeys" in line and tries == 4) or ("Name=\"Asus WMI accel tablet mode" in line and tries == 5)):
                     wmi_hotkeys_detected = 1
                     log.debug('Detect wmi hotkeys from %s', line.strip())
 
