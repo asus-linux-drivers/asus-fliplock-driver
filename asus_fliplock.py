@@ -89,6 +89,8 @@ d_t_switches = None
 fd_t_wmi_hotkeys = open('/dev/input/event' + str(wmi_hotkeys), 'rb')
 d_t_wmi_hotkeys = Device(fd_t_wmi_hotkeys)
 
+# When we listen only key we predict start state is laptop mode
+intel_hid_switches_tablet_mode = 1
 
 def execute_cmd(cmd):
     try:
@@ -102,14 +104,14 @@ def execute_cmds_in_array(cmds):
         execute_cmd(cmd)
 
 
-def flip(intel_hid_switches_tablet_mode):
+def flip(intel_hid_switches_tablet_mode):    
     if intel_hid_switches_tablet_mode:
         execute_cmds_in_array(fliplock_layouts.tablet_mode_actions)
     else:
         execute_cmds_in_array(fliplock_layouts.laptop_mode_actions)
 
 
-# If mode has been changed, do something
+# If mode has been changed, do something        
 if switches is None and wmi_hotkeys is not None:
 
     for e in d_t_wmi_hotkeys.events():
@@ -119,9 +121,10 @@ if switches is None and wmi_hotkeys is not None:
         if switches is not None:
             break
 
+        # Pressed and released event is called during one! flipping simultanously
         if e.matches(fliplock_layouts.flip_key) and e.value == 1:
-            intel_hid_switches_tablet_mode = 1
             flip(intel_hid_switches_tablet_mode)
+            intel_hid_switches_tablet_mode = not intel_hid_switches_tablet_mode
 
         search_devices()
 
