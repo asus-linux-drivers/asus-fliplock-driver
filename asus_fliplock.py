@@ -129,6 +129,9 @@ if switches is None and wmi_hotkeys is not None:
             intel_hid_switches_tablet_mode = not intel_hid_switches_tablet_mode
 
         # TODO: first flip is ommited because device for swithes is added immediately when is flip_key (usually EV_KEY.KEY_PROG2) triggered
+        # dmegs:
+        # [ 4685.611692] intel-hid INTC1051:00: switch event received, enable switches supports
+        # [ 4685.611762] input: Intel HID switches as /devices/platform/INTC1051:00/input/input37
         search_devices()
 
 
