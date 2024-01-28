@@ -72,5 +72,6 @@ LOG=DEBUG sudo -E ./asus_fliplock.py "default"
 
 - [sh] how to create own script under `/etc/acpi/events` - https://askubuntu.com/questions/980997/how-do-i-disable-the-touchpad-when-the-lid-is-twisted-or-closed
 - [ruby] https://github.com/alesya-h/linux_detect_tablet_mode
+- [python] https://github.com/conqp/tablet-mode
 
 **Why was this project created?** Easy installation/uninstallation and with default config aimed for Asus laptops.
