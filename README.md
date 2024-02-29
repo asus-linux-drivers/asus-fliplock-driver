@@ -21,6 +21,10 @@ If you find the project useful, do not forget to give project a [![GitHub stars]
 - By default disable backlight of NumberPad in tablet mode, remember latest backlight level via temp file located in `/tmp`
 - By default disable backlight of MicMute key in tablet mode, remember latest backlight level via temp file located in `/tmp`
 
+## Requirements
+
+- (Optionally for disabling LEDs in tablet mode without kernel modules yet - e.g. preconfigured `default` for laptop `UP5401EA`) have mounted `debugfs` to `/sys/kernel/debug/asus-nb-wmi` from kernel modules `asus-wmi, asus-nb-wmi`
+
 ## Preview
 
 ![gif preview](./preview.gif)
