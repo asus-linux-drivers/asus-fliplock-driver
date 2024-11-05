@@ -6,9 +6,9 @@ laptop_mode_actions = [
     # setting up saved capslock backlight brightness (restore from backup)
     "test -f /tmp/input_capslock_brightness && cat /tmp/input_capslock_brightness | sudo tee /sys/class/leds/input*::capslock/brightness",
     # setting up saved micmute backlight brightness (restore from backup)
-    "test -f /tmp/micmute_brightness && cat /tmp/micmute_brightness | sudo tee /sys/class/leds/platform::micmute/brightness",
+    "test -f /tmp/micmute_brightness && cat /tmp/micmute_brightness | sudo tee /sys/class/leds/platform::micmute/brightness && rm /tmp/micmute_brightness",
     # setting up saved camera backlight brightness (restore from backup)
-    "test -f /tmp/camera_brightness && echo '0x60079' | sudo tee '/sys/kernel/debug/asus-nb-wmi/dev_id' >/dev/null && cat /tmp/camera_brightness | sudo tee '/sys/kernel/debug/asus-nb-wmi/ctrl_param' && sudo cat '/sys/kernel/debug/asus-nb-wmi/devs' >/dev/null"
+    "test -f /tmp/camera_brightness && echo '0x60079' | sudo tee '/sys/kernel/debug/asus-nb-wmi/dev_id' >/dev/null && cat /tmp/camera_brightness | sudo tee '/sys/kernel/debug/asus-nb-wmi/ctrl_param' && sudo cat '/sys/kernel/debug/asus-nb-wmi/devs' >/dev/null && rm /tmp/camera_brightness"
 ]
 
 tablet_mode_actions = [
