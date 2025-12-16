@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.1 (16.12.2025)
+
+### Fixed
+
+- Missing removing `tmp` files for leds of camera & micmute keys after restoring
+
 ## 1.2.0 (29.2.2024)
 
 ### Fixed
@@ -16,4 +22,4 @@
 
 ### Fixed
 
-- Usage #!/usr/bin/env instead of hardcoded path bash/sh
+- Usage `#!/usr/bin/env` instead of hardcoded path `bash/sh`
