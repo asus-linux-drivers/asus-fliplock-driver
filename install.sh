@@ -45,6 +45,12 @@ do
     fi
 done
 
+echo
+
+source install_send_anonymous_dsdt_table.sh 
+
+echo
+
 echo "Add asus fliplock service in /etc/systemd/system/"
 cat asus_fliplock.service | LAYOUT=$model envsubst '$LAYOUT' > /etc/systemd/system/asus_fliplock.service
 
